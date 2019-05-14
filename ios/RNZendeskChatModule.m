@@ -24,6 +24,9 @@ RCT_EXPORT_METHOD(setVisitorInfo:(NSDictionary *)options) {
     if (options[@"phone"]) {
       visitor.phone = options[@"phone"];
     }
+    if (options[@"tags"]) {
+      visitor.note = options[@"tags"];
+    }
     visitor.shouldPersist = options[@"shouldPersist"] || NO;
   }];
 }
