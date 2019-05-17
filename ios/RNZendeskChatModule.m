@@ -24,9 +24,6 @@ RCT_EXPORT_METHOD(setVisitorInfo:(NSDictionary *)options) {
     if (options[@"phone"]) {
       visitor.phone = options[@"phone"];
     }
-    if (options[@"tags"]) {
-      visitor.note = options[@"tags"];
-    }
     visitor.shouldPersist = options[@"shouldPersist"] || NO;
   }];
 }
@@ -39,7 +36,10 @@ RCT_EXPORT_METHOD(startChat:(NSDictionary *)options) {
       if (options[@"department"]) {
         config.department = options[@"department"];
       }
-      
+      if (options[@"tags"]) {
+        config.tags = options[@"tags"];
+      }
+
       config.preChatDataRequirements.name       = ZDCPreChatDataRequired;
       config.preChatDataRequirements.email      = options[@"emailNotRequired"] ? ZDCPreChatDataNotRequired : ZDCPreChatDataRequired;
       config.preChatDataRequirements.phone      = options[@"phoneNotRequired"] ? ZDCPreChatDataNotRequired : ZDCPreChatDataRequired;
